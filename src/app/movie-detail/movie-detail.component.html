@@ -1,0 +1,11 @@
+<div class="card mb-2" *ngIf="movie">
+  <div class="card-header text-center bg-primary text-center text-white">
+    <h5 class="card-title">id: {{movie.id}} - name: {{movie.name}}  </h5>
+  </div>
+  <div class="input-group my-2 px-2">
+    <input type="text" class="form-control" [(ngModel)]="movie.name">
+    <div class="input-group-append">
+      <button class="btn btn-outline-primary" type="button">Button</button>
+    </div>
+  </div>
+</div>

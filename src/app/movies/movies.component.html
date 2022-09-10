@@ -1,3 +1,24 @@
-<div style="background-color: red; height:40px; width: 50px;">
+<movie-detail [movie]="selectedMovie"></movie-detail>
+
+<div class="card ">
+  <div class="card-header text-center">
+    <h2 class="card-title">{{title}}</h2>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let item of movies"
+    (click)="onSelect(item)" [class.active]="item===selectedMovie">
+
+      <span>
+        <span class="badge bg-primary rounded-pill">{{item.id}} </span> {{item.name}}
+      </span>
+      <span class="close">x</span>
+
+    </li>
+
+  </ul>
 
 </div>
+
+
+
+
