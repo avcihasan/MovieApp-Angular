@@ -1,0 +1,23 @@
+
+<div class="card mb-1  p-1" *ngFor="let item of movies">
+  <div class="row">
+    <div class="col-sm-4 ">
+      <img src="../../assets/images/{{item.image}}" class="w-100 rounded" alt="">
+    </div>
+    <div class="col-sm-8">
+      <div class="card-header bg-primary text-center text-white">
+        <h4>{{item.name}}</h4>
+      </div>
+      <div class="card-body">
+        <p>
+          {{item.description}}
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="text-center mt-1">
+  <a class="btn btn-primary" [routerLink]="['/movies']">More Movies</a>
+</div>

@@ -1,0 +1,12 @@
+<div class="card mt-2 bg-primary text-white" *ngIf="loggingService.messages.length">
+  <div class="card-header text-center">
+   <h5>Messages</h5>
+   <button class="btn  btn-sm btn-danger" (click)="loggingService.clear()">Temizle</button>
+  </div>
+  <div class="card-body">
+    <p *ngFor="let item of loggingService.messages">
+      {{item}}
+    </p>
+
+  </div>
+</div>

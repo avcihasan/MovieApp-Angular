@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { LoggingService } from "../logging.service";
 import { Movie } from "../movie";
 import { MovieService } from "../movie.service";
 
@@ -21,15 +22,25 @@ export class MoviesComponent{
   selectedMovie?:Movie;
 
 
-  constructor(private _movieService:MovieService) { }
+  constructor(private _movieService:MovieService, private _loggingService:LoggingService) { }
+
+  ngOnInit(): void {
+
+    this.getMovies();
+
+  }
 
 
   onSelect(movie:Movie):void{
     this.selectedMovie=movie;
+    this._loggingService.add("Selected Movie : "+this.selectedMovie.name );
   }
 
   getMovies():void{
-    this.movies=this._movieService.getMovies();
+    this._movieService.getMovies()
+    .subscribe(movies=>{
+      this.movies=movies;
+    })
   }
 
 }
