@@ -1,11 +1,27 @@
 <div class="card mb-2" *ngIf="movie">
   <div class="card-header text-center bg-primary text-center text-white">
-    <h5 class="card-title">id: {{movie.id}} - name: {{movie.name}}  </h5>
+    <h3 class="card-title">{{movie.name}}  </h3>
   </div>
-  <div class="input-group my-2 px-2">
+  <div class="form-group my-2 px-2">
+    <label for="name" class="mb-1"><h5>Film Adı</h5></label>
     <input type="text" class="form-control" [(ngModel)]="movie.name">
-    <div class="input-group-append">
-      <button class="btn btn-outline-primary" type="button">Button</button>
-    </div>
+
+  </div>
+
+  <div class="form-group my-2 px-2">
+    <label for="image" class="mb-1"><h5>Film Resim Yolu</h5></label>
+    <input type="text" class="form-control" [(ngModel)]="movie.image">
+
+  </div>
+
+  <div class="form-group my-2 px-2">
+    <label for="description" class="mb-1 "><h5>Film Açıklaması</h5></label>
+
+    <textarea class="form-control" [(ngModel)]="movie.description" rows="4"  ></textarea>
+
+  </div>
+  <div class="form-group my-2 px-2 text-center">
+   <button (click)="save()" class="btn btn-primary">Kaydet</button>
+
   </div>
 </div>

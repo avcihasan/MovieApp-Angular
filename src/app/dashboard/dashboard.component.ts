@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   getMovies():void{
     this._movieService.getMovies()
     .subscribe(movies=>{
-      this.movies=movies.slice(5);
+      this.movies=movies.slice(0,5);
     })
   }
 

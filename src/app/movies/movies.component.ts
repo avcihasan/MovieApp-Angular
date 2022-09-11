@@ -22,7 +22,7 @@ export class MoviesComponent{
   selectedMovie?:Movie;
 
 
-  constructor(private _movieService:MovieService, private _loggingService:LoggingService) { }
+  constructor(private _movieService:MovieService) { }
 
   ngOnInit(): void {
 
@@ -33,7 +33,7 @@ export class MoviesComponent{
 
   onSelect(movie:Movie):void{
     this.selectedMovie=movie;
-    this._loggingService.add("Selected Movie : "+this.selectedMovie.name );
+
   }
 
   getMovies():void{
@@ -42,5 +42,7 @@ export class MoviesComponent{
       this.movies=movies;
     })
   }
+
+
 
 }
