@@ -15,12 +15,11 @@ export class MovieService {
   constructor(private _loggingService:LoggingService,private _http:HttpClient) { }
 
   getMovies(): Observable<Movie[]>{
-
-
     return this._http.get<Movie[]>(this._apiMoviesUrl);
   }
 
-  getMovie(id:any): Observable<Movie | any>{
+
+  getMovie(id:any): Observable<Movie>{
     let movie=of(Movies.find(movie=> movie.id===id));
 
     this._loggingService.add("Selected Movie : "+ Movies.find(movie=> movie.id===id).name);
@@ -34,6 +33,15 @@ export class MovieService {
       headers:new HttpHeaders({'Content-Type':'application/json'})
     }
     return this._http.put(this._apiMoviesUrl,movie,htppOptions);
+  }
+
+  add(movie:Movie): Observable<Movie>{
+    return this._http.post<Movie>(this._apiMoviesUrl,movie);
+
+  }
+  delete(movie:Movie): Observable<Movie>{
+    return this._http.delete<Movie>(this._apiMoviesUrl+'/'+movie.id);
+
   }
 
 }

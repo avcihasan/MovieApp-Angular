@@ -34,6 +34,8 @@ export class MoviesComponent{
   onSelect(movie:Movie):void{
     this.selectedMovie=movie;
 
+
+
   }
 
   getMovies():void{
@@ -43,6 +45,18 @@ export class MoviesComponent{
     })
   }
 
+  add(name:string,image:string,description:string):void{
 
+   this._movieService.add({
+    name,
+    image,
+    description
+   }).subscribe(movie=>this.movies.push(movie));
 
+  }
+
+  delete(movie:Movie):void{
+    this.movies=this.movies.filter(m=>m!=movie)
+    this._movieService.delete(movie).subscribe();
+  }
 }

@@ -12,7 +12,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http'
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'
-import { InMemoryDataService } from './in-memory-data.service'
+import { InMemoryDataService } from './in-memory-data.service';
+import { MovieAddComponent } from './movie-add/movie-add.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { InMemoryDataService } from './in-memory-data.service'
     MovieDetailComponent,
     LoggingComponent,
     NavbarComponent,
-    DashboardComponent
+    DashboardComponent,
+    MovieAddComponent
   ],
   imports: [
     BrowserModule,

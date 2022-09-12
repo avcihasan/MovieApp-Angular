@@ -25,9 +25,10 @@ export class MovieDetailComponent implements OnInit {
 
   getMovie():void{
     const id = +this._route.snapshot.paramMap.get('id');
+    debugger
 
 
-    this._movieService.getMovie(id).subscribe(x=>this.movie=x)
+    this._movieService.getMovie(id).subscribe(movie=>this.movie=movie)
   }
   save():void{
     this._movieService.update(this.movie).subscribe(()=>{
